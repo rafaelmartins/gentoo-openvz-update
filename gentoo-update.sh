@@ -2,7 +2,7 @@
 
 set -e
 
-BASE_VM=1001
+BASE_VM=111
 
 # Lets first update the base vm
 if [[ -z $(vzlist -1 | grep ${BASE_VM}) ]]; then
@@ -39,16 +39,16 @@ tar \
 	--exclude='./var/log/messages' \
 	--exclude='./var/log/rc.log' \
 	--exclude='./var/log/wtmp' \
-	--exclude='./var/log/portage/' \
+	--exclude='./var/log/portage/*' \
 	--exclude='./var/log/*.gz' \
 	--exclude='./var/tmp/portage/*' \
-	--exclude='./root/.screen/' \
+	--exclude='./root/.screen/*' \
 	--exclude='./root/.bash_history' \
-	--exclude='./root/.vim/' \
+	--exclude='./root/.vim/*' \
 	--exclude='./root/.viminfo' \
-	--exclude='./home/*/.screen/'\
+	--exclude='./home/*/.screen/*'\
 	--exclude='./home/*/.bash_history' \
-	--exclude='./home/*/.vim/' \
+	--exclude='./home/*/.vim/*' \
 	--exclude='./home/*/.viminfo' \
 	--exclude='./etc/ssh/ssh_host_*' \
 	--exclude='./fastboot' \
